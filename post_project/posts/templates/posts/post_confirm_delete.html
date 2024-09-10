@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>подтвердить удаление</title>
+</head>
+<body>
+    <h1>вы точно хотите удалить пост под названием "{{ post.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">подтвердить</button>
+        <a href="{% url 'home' %}">отменить удаление</a>
+    </form>
+</body>
+</html>

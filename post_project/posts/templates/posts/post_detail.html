@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>категория: {{ post.category.name }}</p>
+    <p>создано : {{ post.created_at }}</p>
+    <h2>комментарии</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">добавить комментарий</button>
+    </form>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <p>{{ comment.author }}: {{ comment.content }} ({{ comment.created_at }})</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

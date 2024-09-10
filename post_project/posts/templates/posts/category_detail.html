@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>категори детейлс</title>
+</head>
+<body>
+    <h1>{{ category.name }}</h1>
+    <a href="{% url 'category_edit' category.pk %}">изменить категорию</a>
+    <a href="{% url 'category_delete' category.pk %}">удалить категорию</a>
+    <h2>посты категорий</h2>
+    <ul>
+        {% for post in category.posts.all %}
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
